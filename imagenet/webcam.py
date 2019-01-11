@@ -12,7 +12,18 @@ log.basicConfig(filename='webcam.log',level=log.INFO)
 
 
 video_capture = cv2.VideoCapture(0)
-fourcc = cv2.VideoWriter_fourcc(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
+
+'''https://www.pyimagesearch.com/2016/02/22/writing-to-video-with-opencv/'''
+# OS: Windows 10 Home 64 bits
+# PL: Python 2.7.12
+# Lib: OpenCV 3.1
+# Player: VLC Player
+# MJPG&avi is very well combination.
+# I had tried XVID&avi / MJPG/mpg all get some trouble.
+# and M$ media player with Win7codecs can’t play the video.
+# So I turn to VLC Player.
+
+fourcc = cv2.VideoWriter_fourcc('M','J','P','G')  # cv2.VideoWriter_fourcc() does not exist
 video_writer = cv2.VideoWriter("output.avi", fourcc , 20.0 , (680, 480))
 anterior = 0
 a=0
